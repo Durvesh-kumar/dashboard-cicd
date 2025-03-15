@@ -1,0 +1,39 @@
+name: "E-commece dashboard" # name of pipeline
+
+# Event
+on:
+    push:
+        branches:
+            - main
+            - master
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: "Setup node js"
+              uses: actions/setup-node@v4
+              with:
+                node-version: '22'
+
+            - name: "Check node version"
+              run: node --version
+
+            - name: "Clone the repository"
+              uses: actions/checkout@v2
+
+            - name: "List directories"
+              run: ls
+            
+            - name: "Install dependencies"
+              run: npm install
+
+            - name: "List directories"
+              run: ls
+            
+            - name: "Run lint"
+              run: npm run lint
+            
+            - name: "Run build"
+              run: npm run build
