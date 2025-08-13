@@ -1,0 +1,11 @@
+name: "Deploy on aws"
+
+# Trigger the workflow from github ui
+on: workflow_dispatch
+
+jobs:
+    deploy:
+       runs-on: self-hosted
+
+       steps:
+         - name: "Setup nodejs"
