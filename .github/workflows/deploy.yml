@@ -8,4 +8,25 @@ jobs:
        runs-on: self-hosted
 
        steps:
-         - name: "Setup nodejs"
+            - name: "Setup node js"
+              uses: actions/setup-node@v4
+              with:
+                node-version: '22'
+
+            - name: "Check node version"
+              run: node --version
+
+            - name: "Clone the repository"
+              uses: actions/checkout@v2
+
+            - name: "List directories"
+              run: ls
+
+            - name: "Install dependencies"
+              run: npm install
+
+            - name: "Install pm2 globally"
+              run: npm install pm2 -g
+
+            - name: "Deploy on aws"
+              run: pm2 start next start
