@@ -25,8 +25,8 @@ jobs:
             - name: "Install dependencies"
               run: npm install
 
-            - name: "Install pm2 globally"
-              run: npm install pm2 -g
+            # - name: "Install pm2 globally"
+            #   run: npm install pm2 -g
 
             - name: "Deploy on aws"
               run: pm2 start "next start" --name next-app --interpreter bash
